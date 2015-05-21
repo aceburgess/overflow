@@ -1,6 +1,5 @@
 class Vote < ActiveRecord::Base
-  belongs_to :questions, as: :votable
-  belongs_to :answers, as: :votable
+  belongs_to :votable, polymorphic: true
   belongs_to :users
 
   validates :votable, presence: true

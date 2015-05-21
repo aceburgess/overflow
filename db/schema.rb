@@ -11,8 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150521213013) do
+ActiveRecord::Schema.define(version: 20150521215614) do
+
+  create_table "answers", force: :cascade do |t|
+    t.text     "content",     null: false
+    t.integer  "user_id",     null: false
+    t.integer  "question_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer  "commentable_id",   null: false
@@ -23,6 +30,29 @@ ActiveRecord::Schema.define(version: 20150521213013) do
     t.datetime "updated_at",       null: false
   end
 
+  create_table "question_tags", force: :cascade do |t|
+    t.integer  "question_id", null: false
+    t.integer  "tag_id",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "title",                            null: false
+    t.text     "content",                          null: false
+    t.integer  "user_id",                          null: false
+    t.boolean  "is_answered",      default: false, null: false
+    t.integer  "chosen_answer_id"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
     t.string   "password_digest", null: false
@@ -30,8 +60,14 @@ ActiveRecord::Schema.define(version: 20150521213013) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
-=======
-ActiveRecord::Schema.define(version: 0) do
->>>>>>> Adds comment model
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "user_id",      null: false
+    t.integer  "votable_id",   null: false
+    t.string   "votable_type", null: false
+    t.boolean  "is_upvote",    null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
 end

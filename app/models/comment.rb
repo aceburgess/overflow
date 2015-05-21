@@ -1,6 +1,5 @@
 class Comment < ActiveRecord::Base
-  belongs_to :questions, as: :commentable
-  belongs_to :answers, as: :commentable
+  belongs_to :commentable, polymorphic: true
   belongs_to :users
 
   validates :commentable, presence: true

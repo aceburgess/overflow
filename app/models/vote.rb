@@ -4,5 +4,5 @@ class Vote < ActiveRecord::Base
 
   validates :votable, presence: true
   validates :is_upvote, presence: true
-  validate :user_id, presence: true
+  validates :user_id, presence: true
 end

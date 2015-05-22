@@ -1,0 +1,5 @@
+<h4><%= answer.user.username %></h4>
+<h5><%= answer.created_at %></h5>
+<p><%= answer.content %></p>
+
+<%= link_to "Add A Comment", new_comment_path(answer_id: answer.id) %>

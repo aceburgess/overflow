@@ -12,8 +12,8 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      case @coment.commentable_type
-      when "Answer" then redirect_to answer_path(id: @comment.commentable_id)
+      case @comment.commentable_type
+      when "Answer" then redirect_to question_path(id: Answer.find_by(id: @comment.commentable_id).question_id)
       when "Question" then redirect_to question_path(id: @comment.commentable_id)
       end
   	else
@@ -41,7 +41,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-  	params.require(:comment).permit(:content, :commentable_type, :commentable_id).merge(user_id: current_user.id)
+  	params.require(:comment).permit(:content).merge(user_id: current_user.id, commentable_type: params[:commentable_type], commentable_id: params[:commentable_id])
   end
 
 end

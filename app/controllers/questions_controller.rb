@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :get_questions, only: [:index]
-  before_action :get_questino, only: [:show, :edit, :update, :destroy]
+  before_action :get_question, only: [:show, :edit, :update, :destroy]
 
   def index
   end

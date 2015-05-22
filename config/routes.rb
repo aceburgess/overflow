@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :comments, only: [:new, :create, :edit, :update, :destroy]
   resources :tags, only: [:new, :create, :destroy]
   resources :votes, only: [:new, :create, :edit, :update]
+  root 'questions#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

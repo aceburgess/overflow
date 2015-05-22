@@ -2,21 +2,23 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
+    if params[:answer_id]
+      @commentable_object = Answer.find_by(id: params[:answer_id])
+    elsif params[:question_id]
+      @commentable_object = Question.find_by(id: params[:question_id])
+    end
   end
 
   def create
-    if params[:question_id]
-      parent = Question.find(params[:question_id])
-    else
-      parent = Answer.find(params[:answer_id])
-    end
-
-  	new_comment = parent.comments.build(comment_params)
-
-    if new_comment.save
-      redirect_to :back
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      case @coment.commentable_type
+      when "Answer" then redirect_to answer_path(id: @comment.commentable_id)
+      when "Question" then redirect_to question_path(id: @comment.commentable_id)
+      end
   	else
   	  flash[:warn] = "Your comment couldn't be saved"
+      redirect_to :back
   	end
   end
 
@@ -39,7 +41,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-  	params.require(:comment).permit(:content).merge(user_id: current_user.id)
+  	params.require(:comment).permit(:content, :commentable_type, :commentable_id).merge(user_id: current_user.id)
   end
 
 end

@@ -11,25 +11,21 @@
 end
 
 5.times do |n|
-  Question.create(title: Faker::Commerce.product_name + "?", content: Faker::Lorem.paragraph + "?", user_id: n)
-  n + 1
+  Question.create(title: Faker::Commerce.product_name + "?", content: Faker::Lorem.paragraph + "?", user: User.all.to_a.sample)
 end
 
 
 5.times do |n|
   Answer.create(content: "Well, what you should really be doing is " + Faker::Company.catch_phrase + "!", user_id: n, question_id: n)
-  n + 1
 end
 
 
 5.times do |n|
   Comment.create(commentable_id: n, commentable_type: "Question", content: "Personally, I think " + Faker::Company.catch_phrase, user_id: n)
-  n + 1
 end
 
 5.times do |n|
   Comment.create(commentable_id: n, commentable_type: "Answer", content: Faker::Company.catch_phrase + " sucks!", user_id: n)
-  n + 1
 end
 
 5.times do |n|

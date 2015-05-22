@@ -8,8 +8,10 @@ class ApplicationController < ActionController::Base
     User.find_by(id: session[:user_id])
   end
 
-  def unauthorized_user
-    flash[:warn] = "You are not authorized to view this page!"
-    redirect_to root_path
+  def must_be_logged_in
+    unless current_user
+      flash[:warn] = "You must be logged in to view this page!"
+      redirect_to root_path
+    end
   end
 end

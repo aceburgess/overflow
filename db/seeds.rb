@@ -11,12 +11,12 @@ User.create(username: Faker::Name.name, password_digest: "123", email: Faker::In
 end
 
 5.times do
-Question.create(title: Faker::Commerce.product_name + "?", body: Faker::Lorem.paragraph + "?", user_id: 1)
+Question.create(title: Faker::Commerce.product_name + "?", content: Faker::Lorem.paragraph + "?", user_id: 1)
 end
 
 
 5.times do |n| 
-Answer.create(content: Faker::Hacker.say_something_smart, user_id: n, post_id: n)
+Answer.create(content: Faker::Hacker.say_something_smart, user_id: n, question_id: n, is_answered: false, chosen_answer_id: nil)
 n + 1 
 end
 

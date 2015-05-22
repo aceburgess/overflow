@@ -26,9 +26,16 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    if Question.update_attributes(question_params)
+      redirect_to question_path @question
+    else
+      flash[:warn] = "Question was not updated. Please try again"
+      redirect_to :back
+    end
   end
 
   def destroy
+    @question.destroy
   end
 
   private

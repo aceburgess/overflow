@@ -1,0 +1,4 @@
+<%= form_for @vote do |f| %>
+  <%= f.select :is_upvote, [['Upvote', true], ['Inactive', false]] %>
+  <%= f.submit %>
+<% end %>

@@ -10,7 +10,6 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.new(answer_params)
     if @answer.save
-      question = answer_params[:question_id]
       redirect_to question_path
     else
       redirect_to '/error'
@@ -25,7 +24,6 @@ class AnswersController < ApplicationController
   def update
     @answer = Answer.new(answer_params)
     if @answer.save
-      question = answer_params[:question_id]
       redirect_to question_path
     else
       redirect_to '/error'
@@ -41,7 +39,7 @@ class AnswersController < ApplicationController
   private
 
   def answer_params
-    params.require(:answer).permit(:content, :user_id, :question_id)
+    params.require(:answer, :question_id).permit(:content).merge(user_id: current_user.id)
   end
 
 end

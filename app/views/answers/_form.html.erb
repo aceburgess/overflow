@@ -1,5 +1,4 @@
-<% if current_user %>
-
+	<% if current_user %>
 <%= form_for @answer do |f| %>
 <div class="field">
 	<%= f.label :content %>
@@ -8,5 +7,5 @@
 <div class="actions">
 	<%= f.submit "Answer this question" %>
 </div>
-<% end %>
+	<% end %>
 <% end %>

@@ -1,0 +1,13 @@
+<%= form_for @question do |f| %>
+
+<%= f.label :title, "Question" %>
+<%= f.text_field :title %>
+
+<%= f.label :content, "Details" %>
+<%= f.text_area :content %>
+
+<%= f.submit "Submit" %>
+
+<% end %>
+
+<%= link_to "Back", questions_path %>

@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   def create
   	@comment = Comment.new(todo_params)
     if @comment.save
-      redirect_back
+      redirect_to :back
   	else
   	  flash[:warn] = "Your comment couldn't be saved"
   	end
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
 
   def update
   	if @comment.update_attributes(comment_params)
-  	  redirect_back
+  	  redirect_to :back
   	else
   	  flash[:warn] = 'Was not able to save this comment'
   	end

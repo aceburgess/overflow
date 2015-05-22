@@ -7,7 +7,6 @@ class VotesController < ApplicationController
   end
 
   def create
-
   	if params[:question_id]
       parent = Question.find(params[:question_id])
     else
@@ -21,19 +20,25 @@ class VotesController < ApplicationController
     else
       flash[:warn] = "Something went wrong"
     end
-    
   end
 
   def edit
   end
 
   def update
+    @vote = Vote.find(params[:id])
+    if params[:vote]
+      @vote.update_attributes(vote_params)
+      redirect_to :back
+    else
+      flash[:warn] = 'Something went wrong'
+    end
   end
 
   private
 
   def vote_params
-  	params.require(:vote).permit(:user_id, :votable_id, :votable_type, :is_upvote)
+  	params.require(:vote).permit(:is_upvote).
   end
 
 end

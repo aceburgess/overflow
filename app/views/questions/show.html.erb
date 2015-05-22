@@ -3,7 +3,9 @@
 <h4><%= @question.created_at %></h4>
 
 <p><%= @question.content %></p>
-
+<div class="question-comments">
+  <%= render @question.comments %>
+</div>
 
 <%= link_to "Add A Comment", new_comment_path(question_id: @question.id) %>
 

@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      session[:user_id] = @user.id
       redirect_to user_path(id: @user.id)
     else
       flash[:warn] = "That is not a valid user!"
@@ -19,15 +20,18 @@ class UsersController < ApplicationController
   end
 
   def show
+    redirect_to root_path unless session[:user_id] == params[:id].to_i
     @user = User.find_by(id: params[:id])
   end
 
   def edit
+    redirect_to root_path unless session[:user_id] == params[:id].to_i
     @user = User.find_by(id: params[:id])
   end
 
   def update
     @user = User.find_by(id: params[:id])
+    @user.assign_attributes(user_params)
 
     if @user.save
       redirect_to user_path(id: @user.id)

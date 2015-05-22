@@ -1,4 +1,5 @@
 <%= @user.username %>
 <%= @user.email %>
+<%= link_to "Edit!", edit_user_path %>
 <p><%= render @user.questions %></p>
 <p><%= render @user.answers %></p>

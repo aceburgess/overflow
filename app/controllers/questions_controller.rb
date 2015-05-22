@@ -35,7 +35,12 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question.destroy
+    if @question.destroy
+      redirect_to questions_path
+    else
+      flash[:warn] = "Quesiton was not deleted."
+      redirect_to :back
+    end
   end
 
   private

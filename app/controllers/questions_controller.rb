@@ -13,6 +13,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
+
   end
 
   def edit
@@ -34,6 +35,6 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-  params.require(:question).permit(:title, :content, :is_answered, :chosen_answer_id).merge(user_id: current_user.id)
+    params.require(:question).permit(:title,:content,:is_answered,:chosen_answer_id).merge(user_id: current_user.id)
   end
 end

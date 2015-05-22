@@ -5,8 +5,15 @@ class CommentsController < ApplicationController
   end
 
   def create
-  	@comment = Comment.new(todo_params)
-    if @comment.save
+    if params[:question_id]
+      parent = Question.find(params[:question_id])
+    else
+      parent = Answer.find(params[:answer_id])
+    end
+
+  	new_comment = parent.comments.build(comment_params)
+
+    if new_comment.save
       redirect_to :back
   	else
   	  flash[:warn] = "Your comment couldn't be saved"
@@ -17,6 +24,7 @@ class CommentsController < ApplicationController
   end
 
   def update
+    @comment = Comment.find(params[:id])
   	if @comment.update_attributes(comment_params)
   	  redirect_to :back
   	else
@@ -26,16 +34,12 @@ class CommentsController < ApplicationController
 
   def destroy
   	flash[:message] = 'Comment deleted' if @comment.delete
-  end 
+  end
 
   private
 
-  def find_comment
-  	@comment = Comment.find(params[:id])
-  end
-
   def comment_params
-  	params.require(:comment).permit(:commentable_id, :commentable_type, :content, :user_id)
+  	params.require(:comment).permit(:content, :user_id)
   end
 
 end

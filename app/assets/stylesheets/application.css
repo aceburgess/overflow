@@ -79,6 +79,10 @@ main {
 	list-style-type: none;
 }
 
+.question_list a {
+	color: #c0392b
+}
+
 
 .question_list .quest {
 	color: #2980b9;
@@ -93,6 +97,25 @@ main {
 
 
 .author{
+	color: #34495e;
 	font-size:1vw;
 	margin-bottom: 1.5vw;
+}
+
+.quest {
+	font-family: "Rokkitt";
+	}
+
+.question_container {
+	padding:4px;
+}
+
+.user_div {
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 60px;
+}
+
+.user_questions_div {
+	
 }

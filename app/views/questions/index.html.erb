@@ -5,12 +5,19 @@
 
 
 <ul class="question_list">
+
+<div class="question_container">
 <h3>Questions</h3>
   <% @questions.each do |question| %>
-    <li class ="quest"><%= link_to question.title, question_path(question) %></li>
-    <li class="author">Asked by <%= link_to question.user.username, user_path(question.user) %></li>
+  	<div class="details animated fadeIn">
+    <li class ="quest"><%= link_to question.title, question_path(question) %></span></li>
+    <li class="author">Asked by <%= link_to question.user.username, user_path(question.user) %>
+    <span class ="count">   <%= question.answers.count %>   answer(s)
+    </li>
+    </div>
   <% end %>
 </ul>
+</div>
 
 <% if current_user %>
   <%= link_to 'Create New Question', new_question_path %>

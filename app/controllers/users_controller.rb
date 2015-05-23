@@ -20,8 +20,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    # redirect_to root_path unless session[:user_id] == params[:id].to_i
     @user = User.find_by(id: params[:id])
+    @graph_data = [@user.average_question_score, @user.average_answer_score]
   end
 
   def edit

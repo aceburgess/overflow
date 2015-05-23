@@ -6,6 +6,9 @@
 <%= f.label :content, "Details" %>
 <%= f.text_area :content %>
 
+<%= label_tag :tags %>
+<%= text_field_tag :tags, nil, :placeholder => "ex: ''tag1, tag2, tag3''"%>
+
 <%= f.submit "Submit" %>
 
 <% end %>

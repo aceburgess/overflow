@@ -15,6 +15,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
+      apply_tags(params[:tags])
       redirect_to questions_path
     else
       flash[:warn] = "Question was not saved. Please try again."
@@ -54,5 +55,10 @@ class QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit(:title,:content,:is_answered,:chosen_answer_id).merge(user_id: current_user.id)
+  end
+
+  def apply_tags(tag_string)
+    tags = tag_string.split(',').collect(&:strip)
+    tags.each { |tag| @question.tags.find_or_create_by(name: tag) }
   end
 end

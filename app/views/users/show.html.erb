@@ -12,13 +12,12 @@
 <% @user.questions.each do |question| %>
 <h3><%= link_to question.title, question_path %></h3>
 <% end %>
-
 </div>
 
-<div class="user_answer_div">
-<h3>Answers Contributed</h3>
+<div class="user_answers_div">
+<h3>Questions Upon Which The User has Contributed an Answer</h3>
 <% @user.answers.each do |answer| %>
-
+<h3><%= link_to answer.question.title, question_path %>
 
 <% end %>
 </div>

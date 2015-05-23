@@ -1,15 +1,15 @@
-<h3><%= @question.title %></h3>
-<h4>Asked by: <%= @question.user.username %>
-<h4><%= @question.created_at %></h4>
 
+<h3 class= "q"><%= @question.title %></h3>
+<h4>Asked by: <%= link_to @question.user.username, user_path(@question.user) %>
+<h4><%= @question.created_at %></h4>
 <p><%= @question.content %></p>
 <%= render '/votes/form', vote: Vote.new, votable_object: @question %>
-<div class="question-comments">
+<div class="comment-container">
   <%= render @question.comments %>
   <%= link_to "Add A Comment", new_comment_path(question_id: @question.id), class:'add-comment-to-question', data: {question_id: @question.id} %>
 </div>
 
-<h3>Answers</h3>
+<h3 class="a">Answers</h3>
 
 <%= render @question.answers %>
 

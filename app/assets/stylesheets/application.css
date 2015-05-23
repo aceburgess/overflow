@@ -21,6 +21,14 @@
 
 @import 'animate/slideInDown';
 
+a {
+	color: #c0392b;
+}
+
+a:hover{
+ text-decoration: none;
+}
+
 h1{
 	font-family: "Rokkitt",serif;
 
@@ -116,6 +124,31 @@ main {
 	margin-bottom: 60px;
 }
 
-.user_questions_div {
+
+.user_questions_div a:hover{
+ text-decoration: none;
+ margin-bottom: 100px;
 	
+}
+
+.user_answers_div a:hover{
+ text-decoration: none;
+	
+}
+
+
+.single-comment{
+	padding: 8px;
+	width: 400px;
+	border: 1px solid black;
+}
+
+.q {
+	font-size: 5em;
+	color: #7f8c8d;
+}
+
+.a {
+	margin-top: 100px;
+	color: #7f8c8d
 }

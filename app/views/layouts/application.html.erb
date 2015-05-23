@@ -8,18 +8,11 @@
 </head>
 <body>
   <div class="container">
-    <div>
+    <div><%= render 'layouts/header' %></div>
+    <main>
+      <h1 class="centered" id="title">Welcome to OvrFlo</h1>
       <%= flash[:warn] %>
-      <%= link_to "Home", root_path %>
-      <% unless current_user %>
-        <div><%= link_to "Login", '/login' %></div>
-        <div><%= link_to "Sign Up!", '/signup' %></div>
-        <% else %>
-        <div>
-          <%= link_to "Logout", '/logout' %>
-        </div>
-      <% end %>
-    </div>
+    </main>
     <%= yield %>
   </div>
 </body>

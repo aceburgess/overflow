@@ -2,10 +2,14 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
+    # binding.pry
     if params[:answer_id]
       @commentable_object = Answer.find_by(id: params[:answer_id])
     elsif params[:question_id]
       @commentable_object = Question.find_by(id: params[:question_id])
+    end
+    if request.xhr?
+      render partial: 'form', locals: {commentable_object: @commentable_object}
     end
   end
 

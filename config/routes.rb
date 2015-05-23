@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   resources :users
   resources :questions do
-    resources :answers, only: [:new, :create, :edit, :update, :destroy]
+    resources :answers, only: [:create, :update, :destroy]
   end
   resources :comments, only: [:new, :create, :edit, :update, :destroy]
-  resources :tags, only: [:new, :create, :destroy]
-  resources :votes, only: [:new, :create, :edit, :update]
+  resources :tags, only: [:create, :destroy]
+  resources :votes, only: [:create, :update]
   resources :sessions, only: [:new, :create, :destroy]
   get '/login' => 'sessions#new'
   get '/logout' => 'sessions#destroy'

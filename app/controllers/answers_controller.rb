@@ -2,13 +2,6 @@ class AnswersController < ApplicationController
   before_action :get_answer, only: [:edit, :update, :destroy]
   before_action :get_question, only: [:create]
 
-  def index
-  end
-
-  def new
-    @answer = Answer.new
-  end
-
   def create
     @answer = Answer.new(answer_params)
     if @answer.save
@@ -19,9 +12,6 @@ class AnswersController < ApplicationController
     end
   end
 
-
-  def edit
-  end
 
   def update
     @answer = Answer.new(answer_params)

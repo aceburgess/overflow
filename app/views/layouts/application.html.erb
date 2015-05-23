@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Overflow</title>
+  <title>Ovrflow</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'animate.css' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -10,7 +11,6 @@
   <div class="container">
     <div><%= render 'layouts/header' %></div>
     <main>
-      <h1 class="centered" id="title">Welcome to OvrFlo</h1>
       <%= flash[:warn] %>
     </main>
     <%= yield %>

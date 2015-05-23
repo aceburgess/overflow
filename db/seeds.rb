@@ -11,7 +11,7 @@
 end
 
 5.times do |n|
-  Question.create(title: Faker::Commerce.product_name + "?", content: Faker::Lorem.paragraph + "?", user: User.all.to_a.sample)
+  Question.create(title: Faker::Commerce.product_name + "?", content: Faker::Lorem.paragraph(4) + "?", user: User.all.to_a.sample)
 end
 
 
@@ -21,7 +21,7 @@ end
 
 
 5.times do |n|
-  Comment.create(commentable_id: n, commentable_type: "Question", content: "Personally, I think " + Faker::Company.catch_phrase, user_id: n)
+  Comment.create(commentable_id: n, commentable_type: "Question", content: "Personally, I think " + Faker::Company.catch_phrase + " is a much better solution.", user_id: n)
 end
 
 5.times do |n|

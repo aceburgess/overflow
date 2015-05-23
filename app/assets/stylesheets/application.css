@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+@import url(http://fonts.googleapis.com/css?family=Rokkitt:400,700);
+
+main {
+  margin-top: 8vw;
+}
+
+#nav-title {
+  font-size: 1.5em;
+  font-family: "Rokkitt",serif;
+}
+
+#title {
+  font-family: "Rokkitt", serif
+}
+
+.navbar-right {
+  margin-right: 1vw;
+}
+
+.centered {
+  text-align: center;
+  margin: 0 auto;
+}

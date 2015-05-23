@@ -1,6 +1,6 @@
-<%= form_for vote do |f| %>
-  <%= f.select :is_upvote, [['Upvote', true], ['Downvote', false]] %>
-  <%= hidden_field_tag :votable_id, votable_object.id %>
-  <%= hidden_field_tag :votable_type, votable_object.class.to_s %>
-  <%= f.submit votable_object.total_votes.to_s %>
-<% end %>
+<div class='vote'>
+  <%= link_to '<i class="fa fa-angle-up"></i>'.html_safe, votes_path(vote:{is_upvote: true, votable_id: votable_object.id, votable_type: votable_object.class.to_s}), method: :post %><br>
+  <span class='vote_count'><%= votable_object.total_votes.to_s %></span><br>
+  <%= link_to '<i class="fa fa-angle-down"></i>'.html_safe, votes_path(vote:{is_upvote: false, votable_id: votable_object.id, votable_type: votable_object.class.to_s}), method: :post %>
+</div>
+

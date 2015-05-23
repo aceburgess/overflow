@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('ready page:load', function(){
 
   // Question Comment
   var addQuestionCommentLinkHTML = $('.add-comment-to-question')[0].outerHTML

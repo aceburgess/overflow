@@ -175,7 +175,7 @@ main {
 .single-tag {
 	padding:1px;
 	background-color:rgba(192,192,255,0.3);;
-	display:inline;
+	display:inline-block;
 	font-size: 12px;
 }
 

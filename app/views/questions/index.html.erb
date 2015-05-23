@@ -12,13 +12,15 @@
   	<div class="details animated fadeIn">
     <li class ="quest"><%= link_to question.title, question_path(question) %></span></li>
     <li class="author">Asked by <%= link_to question.user.username, user_path(question.user) %>
-    <span class ="count">   <%= question.answers.count %>   answer(s)
+    <span class ="count">   <%= question.answers.count %>   answer(s)</span>
     </li>
-    </div>
+    
   <% end %>
 </ul>
-</div>
 
+<div id="create" class="animated fadeIn">
 <% if current_user %>
-  <%= link_to 'Create New Question', new_question_path %>
+  <button type="button" class="btn"><%= link_to 'Create New Question', new_question_path %></button>
 <% end %>
+</div>
+</div>

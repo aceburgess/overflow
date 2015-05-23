@@ -21,6 +21,14 @@
 
 @import 'animate/slideInDown';
 
+a {
+	color: #c0392b;
+}
+
+a:hover{
+ text-decoration: none;
+}
+
 h1{
 	font-family: "Rokkitt",serif;
 
@@ -116,6 +124,15 @@ main {
 	margin-bottom: 60px;
 }
 
-.user_questions_div {
+
+.user_questions_div a:hover{
+ text-decoration: none;
+ margin-bottom: 100px;
 	
 }
+
+.user_answers_div a:hover{
+ text-decoration: none;
+	
+}
+

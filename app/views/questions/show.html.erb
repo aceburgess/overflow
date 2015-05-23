@@ -3,6 +3,7 @@
 <h4><%= @question.created_at %></h4>
 
 <p><%= @question.content %></p>
+<%= render '/votes/form', vote: Vote.new, votable_object: @question %>
 <div class="question-comments">
   <%= render @question.comments %>
 </div>

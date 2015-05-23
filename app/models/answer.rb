@@ -7,4 +7,8 @@ class Answer < ActiveRecord::Base
 	validates :user_id, presence: true
 	validates :question_id, presence: true
 	validates :content, presence: true
+
+  def total_votes
+    votes.where(is_upvote: true).count - votes.where(is_upvote: false).count
+  end
 end

@@ -8,4 +8,8 @@ class Question < ActiveRecord::Base
   validates :title, presence: true
   validates :content, presence: true
   validates :user_id, presence: true
+
+  def total_votes
+    votes.where(is_upvote: true).count - votes.where(is_upvote: false).count
+  end
 end

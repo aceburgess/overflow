@@ -2,13 +2,6 @@ class VotesController < ApplicationController
 
   def create
     @vote = Vote.new(vote_params)
-  	# if params[:question_id]
-   #    parent = Question.find(params[:question_id])
-   #  else
-   #    parent = Answer.find(params[:answer_id])
-   #  end
-	  # new_vote = parent.votes.build(vote_params)
-    binding.pry
     if @vote.save
       redirect_to :back
     else

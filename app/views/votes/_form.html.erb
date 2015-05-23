@@ -2,5 +2,5 @@
   <%= f.select :is_upvote, [['Upvote', true], ['Downvote', false]] %>
   <%= hidden_field_tag :votable_id, votable_object.id %>
   <%= hidden_field_tag :votable_type, votable_object.class.to_s %>
-  <%= f.submit %>
+  <%= f.submit votable_object.total_votes.to_s %>
 <% end %>

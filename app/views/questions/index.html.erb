@@ -11,6 +11,9 @@
   <% @questions.each do |question| %>
   	<div class="details animated fadeIn">
     <li class ="quest"><%= link_to question.title, question_path(question) %></span></li>
+    <% question.tags.each do |tag| %>
+    <div class="single-tag"><%= tag.name %></div>
+    <% end %>
     <li class="author">Asked by <%= link_to question.user.username, user_path(question.user) %>
     <span class ="count">   <%= question.answers.count %>   answer(s)</span>
     </li>

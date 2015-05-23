@@ -112,6 +112,7 @@ main {
 
 .quest {
 	font-family: "Rokkitt";
+	margin-bottom: -15px;
 	}
 
 .question_container {
@@ -169,4 +170,26 @@ main {
 
 .answer-container {
 	margin-bottom: 100px;
+}
+
+.single-tag {
+	padding:1px;
+	background-color:rgba(192,192,255,0.3);;
+	display:inline;
+	font-size: 12px;
+}
+
+.form-container-big{
+	width:250px;
+}
+.form-container-left{
+	float:left;
+}
+
+.form-container-right{
+	float:right;
+}
+
+.field {
+	margin-bottom:4px;
 }

@@ -28,6 +28,15 @@ end
   Comment.create(commentable_id: n, commentable_type: "Answer", content: Faker::Company.catch_phrase + " sucks!", user_id: n)
 end
 
-5.times do |n|
+30.times do |n|
   Tag.create(name:Faker::Commerce.department)
 end
+
+questions = Question.all
+tags = Tag.all
+
+15.times do |n|
+	QuestionTag.create(question_id:questions.sample.id,tag_id:tags.sample.id)
+end
+
+

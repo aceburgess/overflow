@@ -2,6 +2,9 @@
   <h3><%= @question.title %></h3>
   <h4>Asked by: <%= link_to @question.user.username, user_path %>
   <h4><%= @question.created_at %></h4>
+    <% @question.tags.each do |tag| %>
+    <div class="single-tag"><%= tag.name %></div>
+    <% end %>
 
   <p><%= @question.content %></p>
   <%= render '/votes/form', vote: Vote.new, votable_object: @question %>

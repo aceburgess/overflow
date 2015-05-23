@@ -1,12 +1,22 @@
 
+function ready() {
+
+}
 
 function loadGApi(){
+  // console.log("HEY")
+  // console.log(event)
+  // event.preventDefault();
   google.load("visualization", "1", {packages:["corechart"]});
   google.setOnLoadCallback(setupChart);
 }
 
 function setupChart() {
   chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+  drawChar();
+}
+
+function drawChar(){
   data = findData();
   options = findOptions();
   chart.draw(data, options);

@@ -27,7 +27,9 @@
   var graph_data = <%= @graph_data %>;
 <% end %>
 
+<a href="javascript:$('#chart_div').toggle('slow')" id="data-button">View User Stats</a>
+
 <div id="chart_nav" style="width: 900px; height: 50px;"></div>
 <div id="chart_div" style="width: 900px; height: 500px;"></div>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script>loadGApi();</script>
+<script type="text/javascript">loadGApi();</script>

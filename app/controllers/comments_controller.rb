@@ -17,20 +17,27 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    if @comment.save
-      case @comment.commentable_type
-      when "Answer" then redirect_to question_path(id: Answer.find_by(id: @comment.commentable_id).question_id)
-      when "Question" then redirect_to question_path(id: @comment.commentable_id)
-      end
-      if request.xhr?
-        respond_to do |format|
-          format.html { render partial: 'comment' }
+    respond_to do |format|
+      if @comment.save
+        case @comment.commentable_type
+        when "Answer" then
+          if request.xhr?
+            format.html { render @comment }
+          else
+            redirect_to question_path(id: Answer.find_by(id: @comment.commentable_id).question_id)
+          end
+        when "Question" then
+          if request.xhr?
+            format.html { render @comment }
+          else
+            redirect_to question_path(id: @comment.commentable_id)
+          end
         end
-      end
-  	else
-  	  flash[:warn] = "Your comment couldn't be saved"
-      redirect_to :back
-  	end
+    	else
+    	  flash[:warn] = "Your comment couldn't be saved"
+        redirect_to :back
+    	end
+    end
   end
 
   def edit

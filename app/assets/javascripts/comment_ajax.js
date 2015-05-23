@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
-  $('.add-comment-to-question').on('click', function(event){
+  var addCommentLinkHTML = $('.add-comment-to-question')[0].outerHTML
+  $('.question-container').on('click', '.add-comment-to-question', function(event){
     event.preventDefault();
     $(event.target).hide();
     $.ajax({
@@ -27,10 +28,10 @@ $(document).ready(function(){
       url: event.target.action,
       method: event.target.method,
       data: $(event.target).serialize(),
-      dataType: 'json'
     })
     .done(function(response){
-      console.log(response);
+      $('.question-comments').append(response);
+      $('.question-comments').append(addCommentLinkHTML);
     })
     .fail(function(jqXHR, error){
       console.log(error);

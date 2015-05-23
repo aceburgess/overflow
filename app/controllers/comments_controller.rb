@@ -2,10 +2,16 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
+    # binding.pry
     if params[:answer_id]
       @commentable_object = Answer.find_by(id: params[:answer_id])
     elsif params[:question_id]
       @commentable_object = Question.find_by(id: params[:question_id])
+    end
+    if request.xhr?
+      respond_to do |format|
+        format.html { render partial: 'form', locals: {commentable_object: @commentable_object} }
+      end
     end
   end
 
@@ -15,6 +21,11 @@ class CommentsController < ApplicationController
       case @comment.commentable_type
       when "Answer" then redirect_to question_path(id: Answer.find_by(id: @comment.commentable_id).question_id)
       when "Question" then redirect_to question_path(id: @comment.commentable_id)
+      end
+      if request.xhr?
+        respond_to do |format|
+          format.html { render partial: 'comment' }
+        end
       end
   	else
   	  flash[:warn] = "Your comment couldn't be saved"

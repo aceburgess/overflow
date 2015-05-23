@@ -6,9 +6,8 @@
 <%= render '/votes/form', vote: Vote.new, votable_object: @question %>
 <div class="question-comments">
   <%= render @question.comments %>
+  <%= link_to "Add A Comment", new_comment_path(question_id: @question.id), class:'add-comment-to-question', data: {question_id: @question.id} %>
 </div>
-
-<%= link_to "Add A Comment", new_comment_path(question_id: @question.id) %>
 
 <h3>Answers</h3>
 

@@ -13,9 +13,35 @@
  *= require_tree .
  *= require_self
  *= require font-awesome
+ *= require 'animate'
  */
 
+
 @import url(http://fonts.googleapis.com/css?family=Rokkitt:400,700);
+
+@import 'animate/slideInDown';
+
+h1{
+	font-family: "Rokkitt",serif;
+
+}
+
+h2{
+	font-family: "Rokkitt",serif;
+}
+
+h3 {
+	font-family: "Rokkitt",serif;
+}
+
+h4 {
+	font-family: "Rokkitt",serif;
+}
+
+h5 {
+	font-family: "Rokkitt",serif;
+}
+
 
 main {
   margin-top: 8vw;
@@ -37,4 +63,36 @@ main {
 .centered {
   text-align: center;
   margin: 0 auto;
+}
+
+#main_logo {
+	font-size: 5vw;
+}
+
+#main_logo .r {
+	color: #c0392b;
+
+}
+
+.question_list {
+	font-size:2vw;
+	list-style-type: none;
+}
+
+
+.question_list .quest {
+	color: #2980b9;
+	font-size: 2vw;
+	text-decoration: none;
+}
+
+.question_list a:hover {
+	color: #2980b9;
+	text-decoration: none;
+}
+
+
+.author{
+	font-size:1vw;
+	margin-bottom: 1.5vw;
 }

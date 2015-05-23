@@ -1,6 +1,28 @@
-<%= @user.username %>
-<%= @user.email %>
+
+<h2 style="text-align:center">Profile Page</h3>
+
+<div class="user_div">
+<h3><%= @user.username %></h3>
+<h4><%= @user.email %></h4>
 <%= link_to "Edit!", edit_user_path %>
 <%= link_to "Delete User!", user_path, method: "delete" %>
-<p><%= render @user.questions %></p>
-<p><%= render @user.answers %></p>
+</div>
+
+
+<div class="user_questions_div">
+<h3>Questions asked</h3>
+<% @user.questions.each do |question| %>
+
+<h4><%= question.title %></h4>
+
+
+<% end %>
+
+
+
+
+
+
+
+</div>
+

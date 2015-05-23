@@ -33,6 +33,10 @@ gem 'bcrypt', '~> 3.1.7'
 #pry
 gem 'pry-rails'
 
+gem 'animate-scss'
+
+gem "animate-rails"
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

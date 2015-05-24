@@ -1,5 +1,5 @@
-<%= render '/votes/form', vote: Vote.new, votable_object: @question %>
 <div class="single-comment">
+  <%= render '/votes/form', vote: Vote.new, votable_object: @question %>
   <div>
     <h5><%= link_to comment.user.username, user_path(comment.user) %></h5>
   </div>

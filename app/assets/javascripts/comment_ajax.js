@@ -22,7 +22,7 @@ $(document).on('ready page:load', function(){
     });
   });
 
-  $('.question-comments').on('submit', '.new_comment', function(event){
+  $('.question-comments').on('submit', '.new-comment', function(event){
     event.preventDefault();
     $(event.target).closest('.single-comment').hide();
     $.ajax({
@@ -66,7 +66,7 @@ $(document).on('ready page:load', function(){
     });
   });
 
-  $('.answer-comments').on('submit', '.new_comment', function(event){
+  $('.answer-comments').on('submit', '.new-comment', function(event){
     event.preventDefault();
     $(event.target).closest('.single-comment').hide();
     var $thisAnswerComments = $(event.target).closest('.answer-comments')

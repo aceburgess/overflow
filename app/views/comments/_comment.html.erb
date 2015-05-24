@@ -1,6 +1,6 @@
 <div class="single-comment">
   <div>
-    <h5><%= link_to comment.user.username, user_path %></h5>
+    <h5><%= link_to comment.user.username, user_path(comment.user) %></h5>
   </div>
   <div>
     <%= comment.content %>

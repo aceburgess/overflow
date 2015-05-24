@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
   resources :comments, only: [:new, :create, :edit, :update, :destroy]
   resources :tags, only: [:create, :destroy]
-  resources :votes, only: [:create, :update]
+  resources :votes, only: [:create]
   resources :sessions, only: [:new, :create, :destroy]
   get '/login' => 'sessions#new'
   get '/logout' => 'sessions#destroy'

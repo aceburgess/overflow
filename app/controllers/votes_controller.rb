@@ -3,20 +3,16 @@ class VotesController < ApplicationController
   def create
     @vote = Vote.new(vote_params)
     if @vote.save
-      redirect_to :back
+      respond_to do |format|
+      if request.xhr?
+        format.html { render :nothing => true, :notice => 'Update SUCCESSFUL!' }
+        format.json { render :json => @vote.votable.total_votes, :status => 200 }
+      else
+        redirect_to question_path(@vote.votable)
+      end
+    end
     else
       flash[:warn] = "Something went wrong"
-      redirect_to :back
-    end
-  end
-
-  def update
-    @vote = Vote.find(params[:id])
-    if params[:vote]
-      @vote.update_attributes(vote_params)
-      redirect_to :back
-    else
-      flash[:warn] = 'Something went wrong'
     end
   end
 

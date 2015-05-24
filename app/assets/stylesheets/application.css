@@ -117,6 +117,7 @@ main {
 
 .question_container {
 	padding:4px;
+	float:left;
 }
 
 .user_div {
@@ -129,12 +130,12 @@ main {
 .user_questions_div a:hover{
  text-decoration: none;
  margin-bottom: 100px;
-	
+
 }
 
 .user_answers_div a:hover{
  text-decoration: none;
-	
+
 }
 
 
@@ -142,6 +143,7 @@ main {
 	padding: 8px;
 	width: 400px;
 	border: 1px solid black;
+	float:left;
 }
 
 .q {
@@ -170,6 +172,7 @@ main {
 
 .answer-container {
 	margin-bottom: 100px;
+	clear:both;
 }
 
 .single-tag {
@@ -186,10 +189,46 @@ main {
 	float:left;
 }
 
+
+.vote{
+	float:left;
+	padding:10px;
+}
+
 .form-container-right{
 	float:right;
 }
 
 .field {
 	margin-bottom:4px;
+}
+
+
+.vote{
+	float:left;
+	padding:10px;
+}
+
+.single-answer{
+	float:left;
+}
+
+.answer-form{
+	float:left;
+	clear:both;
+}
+
+.add-question{
+	float:left;
+	clear:both;
+}
+
+.question-comments{
+	padding-left:30px;
+	padding-bottom: 20px;
+}
+
+.question-content{
+	padding-left: 30px;
+	margin-bottom: 30px;
 }

@@ -1,5 +1,5 @@
-<%= render '/votes/form', vote: Vote.new, votable_object: answer %>
 <div class='single-answer'>
+  <%= render '/votes/form', vote: Vote.new, votable_object: answer %>
 <h4><%= link_to answer.user.username, user_path %></h4>
 <h5><%= answer.created_at %></h5>
 <p><%= answer.content %></p>

@@ -10,10 +10,7 @@
     <div class='question-content'>
       <%= @question.content %>
     </div>
-
-  <div class="question-comments">
     <%= render @question.comments %>
-  </div>
   <div class='add-question'>
   <%= link_to "Add A Comment", new_comment_path(question_id: @question.id), class:'add-comment-to-question', data: {question_id: @question.id} %>
   </div>

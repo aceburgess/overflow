@@ -211,7 +211,6 @@ main {
 
 .single-answer{
 	float:left;
-	clear:both;
 }
 
 .answer-form{
@@ -224,16 +223,12 @@ main {
 	clear:both;
 }
 
-
+.question-comments{
+	padding-left:30px;
+	padding-bottom: 20px;
+}
 
 .question-content{
 	padding-left: 30px;
 	margin-bottom: 30px;
-}
-
-.single-comment{
-	float:left;
-	clear:both;
-	margin-left:30px;
-	margin-bottom: 20px;
 }

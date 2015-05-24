@@ -5,7 +5,6 @@ class VotesController < ApplicationController
     if @vote.save
       respond_to do |format|
       if request.xhr?
-        format.html { render :nothing => true, :notice => 'Update SUCCESSFUL!' }
         format.json { render :json => @vote.votable.total_votes, :status => 200 }
       else
         redirect_to question_path(@vote.votable)

@@ -1,0 +1,29 @@
+ <h1 id="main_logo" class="centered animated slideInDown" id="title">Welcome to Ov<span class="r">r</span>Flow</h1>
+
+
+
+
+
+<ul class="question_list">
+
+<div class="question_container">
+<h3>Questions</h3>
+  <% @questions.each do |question| %>
+  	<div class="details animated fadeIn">
+    <li class ="quest"><%= link_to question.title, question_path(question) %></span></li>
+    <% question.tags.each do |tag| %>
+    <div class="single-tag"><%= tag.name %></div>
+    <% end %>
+    <li class="author">Asked by <%= link_to question.user.username, user_path(question.user) %>
+    <span class ="count">   <%= question.answers.count %>   answer(s)</span>
+    </li>
+    <hr>
+  <% end %>
+</ul>
+
+<div id="create" class="animated fadeIn">
+<% if current_user %>
+  <button type="button" class="btn"><%= link_to 'Create New Question', new_question_path %></button>
+<% end %>
+</div>
+</div>

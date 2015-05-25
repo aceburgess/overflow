@@ -1,0 +1,11 @@
+<% if current_user %>
+  <%= form_for [@question,answer] do |f| %>
+    <div class="field">
+    	<h4><%= f.label :content, "Add An Answer" %></h4>
+    	<%= f.text_area :content %>
+    </div>
+    <div class="actions">
+    	<%= f.submit "Answer this question" %>
+    </div>
+	<% end %>
+<% end %>

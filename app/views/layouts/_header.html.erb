@@ -1,0 +1,15 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <ul class="nav navbar-nav navbar-left">
+    <li id="nav-title"><%= link_to root_path do %>Ov<span style="color:#c0392b;">r</span>Flow<% end %></li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+    <% unless current_user %>
+      <li><%= link_to "Login", '/login' %></li>
+      <li><%= link_to "Sign Up!", '/signup' %></li>
+    <% else %>
+      <li>
+        <%= link_to "Logout", '/logout' %>
+      </li>
+    <% end %>
+  </ul>
+</nav>

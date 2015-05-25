@@ -1,0 +1,23 @@
+<div class="question-container">
+  <h3><%= @question.title %></h3>
+  <h4>Asked by: <%= link_to @question.user.username, user_path %>
+  <h4><%= @question.created_at %></h4>
+    <% @question.tags.each do |tag| %>
+    <div class="single-tag"><%= tag.name %></div>
+    <% end %>
+
+  <p><%= @question.content %></p>
+  <%= render '/votes/form', vote: Vote.new, votable_object: @question %>
+  <div class="question-comments">
+    <%= render @question.comments %>
+    <%= link_to "Add A Comment", new_comment_path(question_id: @question.id), class:'add-comment-to-question', data: {question_id: @question.id} %>
+  </div>
+</div>
+
+<div class="answer-container">
+  <h3>Answers</h3>
+
+  <%= render @question.answers %>
+
+  <%= render '/answers/form', answer: Answer.new %>
+</div>

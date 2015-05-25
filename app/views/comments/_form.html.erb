@@ -1,0 +1,13 @@
+<div class="new-comment single-comment">
+  <%= form_for @comment do |f| %>
+    <div>
+      <%= f.label :content, "Comment" %>
+      <%= f.text_field :content %>
+    </div>
+    <div>
+      <%= hidden_field_tag :commentable_type, commentable_object.class.to_s %>
+      <%= hidden_field_tag :commentable_id, commentable_object.id %>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

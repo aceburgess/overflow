@@ -112,7 +112,7 @@ main {
 
 .quest {
 	font-family: "Rokkitt";
-	margin-bottom: -15px;
+	margin-bottom: -1vw;
 	}
 
 .question_container {
@@ -121,20 +121,20 @@ main {
 
 .user_div {
 	text-align: center;
-	margin-top: 40px;
-	margin-bottom: 60px;
+	margin-top: 3vw;
+	margin-bottom: 4vw;
 }
 
 
 .user_questions_div a:hover{
  text-decoration: none;
  margin-bottom: 100px;
-	
+
 }
 
 .user_answers_div a:hover{
  text-decoration: none;
-	
+
 }
 
 
@@ -176,7 +176,7 @@ main {
 	padding:1px;
 	background-color:rgba(192,192,255,0.3);;
 	display:inline-block;
-	font-size: 12px;
+	font-size: 1vw;
 }
 
 .form-container-big{

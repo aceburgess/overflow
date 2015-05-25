@@ -35,8 +35,8 @@ function findData(){
   data.addColumn('string', 'Type');
   data.addColumn('number', 'Average Score');
   data.addRows([
-    ['Questions', -3],
-    ['Answers', 4],
+    ['Questions', graph_data[0]],
+    ['Answers', graph_data[1]],
   ]);
   return data
 }

@@ -1,11 +1,9 @@
-<%= render '/votes/form', vote: Vote.new, votable_object: answer %>
-<div class='single-answer'>
 <h4><%= link_to answer.user.username, user_path %></h4>
 <h5><%= answer.created_at %></h5>
 <p><%= answer.content %></p>
+<%= render '/votes/form', vote: Vote.new, votable_object: answer %>
 <div class="answer-comments">
   <%= render answer.comments %>
   <div class="answer-comment"></div>
   <%= link_to "Add A Comment", new_comment_path(answer_id: answer.id), class:'add-comment-to-answer', data:{answer_id: answer.id} %>
-</div>
 </div>
